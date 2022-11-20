@@ -6,6 +6,7 @@ import appConfig from 'configs/app.config'
 import { REDIRECT_URL_KEY } from 'constants/app.constant'
 import { useNavigate } from 'react-router-dom'
 import useQuery from './useQuery'
+import jwt_decode from "jwt-decode";
 
 function useAuth() {
 
@@ -17,14 +18,16 @@ function useAuth() {
 
     const { token, signedIn } = useSelector((state) => state.auth.session)
 
-    const signIn = async ({ userName, password }) => {
+    const signIn = async ({ username, password }) => {
         try {
-			const resp = await apiSignIn({ userName, password })
+			const resp = await apiSignIn({ username, password })
 			if (resp.data) {
-				const { token } = resp.data
-				dispatch(onSignInSuccess(token))
-				if(resp.data.user) {
-					dispatch(setUser(resp.data.user || { 
+				 const { jwt } =  resp.data.data
+				 const userdetails = jwt_decode(jwt).userDetails
+
+				dispatch(onSignInSuccess(jwt))
+				if(userdetails) {
+					dispatch(setUser(userdetails || { 
 						avatar: '', 
 						userName: 'Anonymous', 
 						authority: ['USER'], 
@@ -35,13 +38,14 @@ function useAuth() {
 				navigate(redirectUrl ? redirectUrl : appConfig.authenticatedEntryPath)
                 return {
                     status: 'success',
-                    message: ''
+                    message: '',
                 }
 			}
 		} catch (errors) {
 			return {
                 status: 'failed',
-                message: errors?.response?.data?.message || errors.toString()
+                message: errors?.response?.data?.data?.message || errors.toString(),
+				response_data: errors?.response?.data?.data
             }
 		}
     }
@@ -54,7 +58,7 @@ function useAuth() {
 
     const signOut = async () => {
 		try {
-			await apiSignOut()
+			await apiSignOut(token)
 			handleSignOut()
 		} catch (errors) {
 			handleSignOut()

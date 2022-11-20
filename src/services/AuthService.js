@@ -2,7 +2,7 @@ import ApiService from './ApiService'
 
 export async function apiSignIn (data) {
     return ApiService.fetchData({
-        url: '/sign-in',
+        url: '/jwt-login/v1/auth',
         method: 'post',
         data
     })
@@ -18,7 +18,7 @@ export async function apiSignUp (data) {
 
 export async function apiSignOut (data) {
     return ApiService.fetchData({
-        url: '/sign-out',
+        url: '/jwt-login/v1/auth/revoke',
         method: 'post',
         data
     })
