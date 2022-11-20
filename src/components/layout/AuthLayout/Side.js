@@ -19,9 +19,9 @@ const Side = ({children, content, ...rest }) => {
 							<span className="opacity-80">CTO, Onward</span>
 						</div>
 					</div>
-					<p className="text-lg text-white opacity-80">Elstar comes with a complete set of UI components crafted with Tailwind CSS, it fulfilled most of the use case to create modern and beautiful UI and application</p>
+					<p className="text-lg text-white opacity-80">Manage your appointments, clinics & staff at your finger-tips.</p>
 				</div>
-				<span className="text-white">Copyright  &copy;  {`${new Date().getFullYear()}`} <span className="font-semibold">{`${APP_NAME}`}</span> </span>
+				<span className="text-white">Copyright  &copy;  {`${new Date().getFullYear()}`} <span className="font-semibold">{`${APP_NAME}`}</span> | By Purefire</span>
 			</div>
 			<div className="col-span-2 flex flex-col justify-center items-center bg-white dark:bg-gray-800">
 				<div className="xl:min-w-[450px] px-8">
