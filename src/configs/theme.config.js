@@ -8,7 +8,7 @@ import { THEME_ENUM } from 'constants/theme.constant'
 export const themeConfig = {
     themeColor: 'indigo',
     direction: THEME_ENUM.DIR_LTR,
-    mode: THEME_ENUM.MODE_LIGHT,
+    mode: THEME_ENUM.MODE_DARK,
     locale: 'en',
     primaryColorLevel: 600,
     cardBordered: true,

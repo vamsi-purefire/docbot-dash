@@ -3,13 +3,13 @@ import {
     HiOutlineColorSwatch, 
 	HiOutlineDesktopComputer,
     HiOutlineTemplate,
-    HiOutlineViewGridAdd,
-    HiOutlineHome
+    HiOutlineHome,
+    HiOutlinePlusSm
 } from 'react-icons/hi'
 
 const navigationIcon = {
     home: <HiOutlineHome />,
-    singleMenu: <HiOutlineViewGridAdd />,
+    clinic: <HiOutlinePlusSm />,
     collapseMenu: <HiOutlineTemplate />,
     groupSingleMenu: <HiOutlineDesktopComputer />,
     groupCollapseMenu: <HiOutlineColorSwatch />
