@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react'
 import classNames from 'classnames'
+import { getList } from '../store/dataSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import reducer from '../store'
+import { injectReducer } from 'store/index'
+
 import { 
 	Card, 
 	Button, 
@@ -12,6 +17,8 @@ import { Loading, UsersAvatarGroup, IconText  } from 'components/shared'
 import useThemeClass from 'utils/hooks/useThemeClass'
 import { HiOutlineDuplicate, HiOutlinePlus, HiOutlineLocationMarker } from 'react-icons/hi'
 import NumberFormat from 'react-number-format'
+
+injectReducer('clinic', reducer)
 
 const data = [
 	{
@@ -33,6 +40,15 @@ const data = [
 ]
 
 const BoxCard = () => {
+
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		dispatch(getList())
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+
+
 
 	return (
         <>

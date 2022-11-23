@@ -107,5 +107,6 @@
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "7.x",
     "tailwindcss": "^3.0.7"
-  }
+  },
+  "proxy": "https://docbot.purefiretech.com/"
 }
