@@ -1,19 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiGetClinicsList } from 'services/ClinicService'
+import { apiGetAppointmentsList } from 'services/AppointmentsService'
 
 
 
-export const getList = createAsyncThunk('clinicList/getList', async (data) => {
-    const response = await apiGetClinicsList(data)
-    console.log(response)
-	return response.data
+export const getList = createAsyncThunk('Appointments/getList', async (data) => {
+    const response = await apiGetAppointmentsList(data)
+	return response
 })
 
 
 const dataSlice = createSlice({
-    name: 'clinic/data',
+    name: 'appointments/data',
     initialState: {
-        clinics: {},
+        appointments: {},
         loading: false,
     },
     reducers: {
@@ -24,7 +23,7 @@ const dataSlice = createSlice({
         },
         [getList.fulfilled]: (state, action) => {
             state.loading = false
-            state.clinics = action.payload
+            state.appointments = action.payload
         }
     }
 })

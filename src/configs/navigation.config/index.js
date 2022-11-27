@@ -16,15 +16,86 @@ const navigationConfig = [
         subMenu: []
     },
 	{
-		key: 'clinics',
-		path: '/clinics',
-		title: 'Clinics',
-		translateKey: 'nav.clinics',
-		icon: 'clinic',
+		key: 'appointments',
+		path: '/appointments',
+		title: 'Appointments',
+		translateKey: 'nav.appointments',
+		icon: 'apppointments',
 		type: NAV_ITEM_TYPE_ITEM,
 		authority: [],
 		subMenu: []
 	},
+	{
+		key: 'calendar',
+		path: '/calendar',
+		title: 'Calendar',
+		translateKey: 'nav.calendar',
+		icon: 'calendar',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+	{
+		key: 'patients',
+		path: '/patients',
+		title: 'Patients',
+		translateKey: 'nav.patients',
+		icon: 'patients',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+	{
+		key: 'reports',
+		path: '/reports',
+		title: 'Reports',
+		translateKey: 'nav.reports',
+		icon: 'reports',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+	{
+		key: 'doctors',
+		path: '/doctors',
+		title: 'Doctors',
+		translateKey: 'nav.doctors',
+		icon: 'doctors',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+	{
+		key: 'communication',
+		path: '/communication',
+		title: 'Communication',
+		translateKey: 'nav.communication',
+		icon: 'communication',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+	{
+		key: 'broadcasts',
+		path: '/broadcasts',
+		title: 'Broadcasts',
+		translateKey: 'nav.broadcasts',
+		icon: 'broadcasts',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+	{
+		key: 'settings',
+		path: '/settings',
+		title: 'Settings',
+		translateKey: 'nav.settings',
+		icon: 'settings',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+
     
 ]
 

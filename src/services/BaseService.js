@@ -23,6 +23,8 @@ BaseService.interceptors.request.use(config => {
     if (accessToken) {
         config.headers[REQUEST_HEADER_AUTH_KEY] = `${TOKEN_TYPE}${accessToken}`
     }
+
+    config.withCredentials = true
     
     return config
 }, error => {
