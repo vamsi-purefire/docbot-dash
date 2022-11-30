@@ -5,6 +5,8 @@ import {
 } from 'constants/navigation.constant'
 
 const navigationConfig = [
+	
+
     {
         key: 'home',
 		path: '/home',
@@ -16,7 +18,7 @@ const navigationConfig = [
         subMenu: []
     },
 	{
-		key: 'appointments',
+		key: 'appointments.list',
 		path: '/appointments',
 		title: 'Appointments',
 		translateKey: 'nav.appointments',

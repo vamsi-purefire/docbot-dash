@@ -14,7 +14,7 @@ import {
 } from 'components/ui'
 import { Loading, UsersAvatarGroup, IconText  } from 'components/shared'
 import useThemeClass from 'utils/hooks/useThemeClass'
-import { HiOutlineLocationMarker, HiOutlineIdentification, HiOutlineMail } from 'react-icons/hi'
+import { HiOutlineLocationMarker, HiOutlineIdentification, HiOutlineMail, HiOutlineCalendar,HiOutlineClock } from 'react-icons/hi'
 
 
 
@@ -22,6 +22,12 @@ const BoxCard = ({data}) => {
 
 
 	const appointment = data.data
+
+    var format_date = new Date(appointment.appointment_start) 
+
+    let appointment_date = format_date.getDate() + "-"+ parseInt(format_date.getMonth()+1) +"-"+format_date.getFullYear();
+    let appointment_time =  format_date.toLocaleString('en-IN', { hour: 'numeric', minute: 'numeric', hour12: true })
+ //   var apppointment_date = (new Date(format_date)).toLocaleString();
 
 
 	return (
@@ -57,7 +63,7 @@ const BoxCard = ({data}) => {
                             className="text-indigo-50"
                             icon={<HiOutlineIdentification className="text-lg" />}
                         >
-                            Vamsi Janaki
+                            {appointment.patient_details.name}
                         </IconText>
 
 						<IconText
@@ -65,7 +71,23 @@ const BoxCard = ({data}) => {
                             className="text-indigo-50"
                             icon={<HiOutlineMail className="text-lg" />}
                         >
-                            Vamsi Janaki
+                            {appointment.patient_details.email}
+                        </IconText>
+
+                        <IconText
+                            textClass="text-sm font-semibold text-white-500"
+                            className="text-indigo-50"
+                            icon={<HiOutlineCalendar className="text-lg" />}
+                        >
+                            {appointment_date}
+                        </IconText>
+
+                        <IconText
+                            textClass="text-sm font-semibold text-white-500"
+                            className="text-indigo-50"
+                            icon={<HiOutlineClock className="text-lg" />}
+                        >
+                            {appointment_time}
                         </IconText>
 						
 

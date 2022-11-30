@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import classNames from 'classnames'
-import Table from './Table'
+import Box from './Box'
 import { Spinner } from 'components/ui'
 import { getList } from '../store/dataSlice'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,6 +9,7 @@ const AppointmentListContent = () => {
 
     const { appointments, loading } = useSelector(state => state.Appointments.data)
 
+    const view = "list";
 
     const dispatch = useDispatch()
 
@@ -34,9 +35,13 @@ const AppointmentListContent = () => {
 
             { ( appointments.data && !loading)  && (
 
-                <div className="grid  gap-4">	
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">	
 
-							<Table key={appointments.id} data={appointments} />
+					{
+						appointments.data.map(appointment => (
+							<Box key={appointment.id} data={appointment} />
+						))
+					}
 
 				</div>
                 
