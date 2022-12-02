@@ -1,14 +1,9 @@
-
 import React from 'react'
 import { Table, Pagination, Select, Badge, Avatar, Button  } from 'components/ui'
 import { useTable, usePagination } from 'react-table'
 import { HiOutlineClock, HiOutlinePencil } from 'react-icons/hi'
 import {  IconText  } from 'components/shared'
 import acronym from 'utils/acronym'
-
-
-
-
 
 
 const statusColor = {

@@ -1,5 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CalendarView } from 'components/shared'
+import { useSelector, useDispatch } from 'react-redux'
+import { getList } from '../Appointments/store/dataSlice'
+import { Spinner, Button, Drawer } from 'components/ui'
+import classNames from 'classnames'
+import { DoubleSidedImage } from 'components/shared'
+
 
 const Calendar = () => {
 
@@ -15,63 +21,110 @@ const Calendar = () => {
 		return dayString.replace("YEAR", year).replace("MONTH", month)
 	}
 
-	const eventsData = [
-		{ 
-			id: '0',
-			title: "All Day Event", 
-			start: getDate("YEAR-MONTH-01"),
-			eventColor: 'orange'
-		},
-		{
-			id: '1',
-			title: "Long Event",
-			start: getDate("YEAR-MONTH-07"),
-			end: getDate("YEAR-MONTH-10"),
-			eventColor: 'red'
-		},
-		{
-			id: '2',
-			groupId: "999",
-			title: "Repeating Event",
-			start: getDate("YEAR-MONTH-09T16:00:00+00:00"),
-			eventColor: 'blue'
-		},
-		{
-			id: '3',
-			groupId: "999",
-			title: "Repeating Event",
-			start: getDate("YEAR-MONTH-16T16:00:00+00:00"),
-			eventColor: 'blue'
-		},
-		{
-			id: '4',
-			title: "Birthday Party", 
-			start: getDate("YEAR-MONTH-19T07:00:00+00:00"),
-			eventColor: 'purple'
-		},
-		{
-			id: '5',
-			title: "Meeting", 
-			start: getDate("YEAR-MONTH-18T14:30:00+00:00"),
-			eventColor: 'blue'
-		},
-		{
-			id: '6',
-			title: "Dinner", 
-			start: getDate("YEAR-MONTH-18T20:00:00+00:00"),
-			eventColor: 'emerald'
-		}
-	]
+	const onEventClick = event => {		
+		openDrawer(event.event._def)
+
+		console.log('event_data', event.event._def)
+	}
+
+	const [isOpen, setIsOpen] = useState(false)
+
+	const openDrawer = () => {
+		setIsOpen(true)
+	}
+
+	const onDrawerClose = e => {
+		console.log('onDrawerClose', e)
+		setIsOpen(false)
+	}
+
+
+	const { appointments, loading } = useSelector(state => state.Appointments.data)
+
+	const dispatch = useDispatch()
+
+    useEffect(() => {
+		fetchData()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+	
+	const fetchData = () => {
+		dispatch(getList())
+	}
+
+
+		const get_appointments = appointments?.data?.appointments?.map((appointment) => {
+			return {
+				id : appointment.id,
+				title: appointment.data.event_summary,
+				start: getDate(appointment.data.appointment_start),
+				end: getDate(appointment.data.appointment_end),
+				eventColor: 'orange',
+			}
+		})
+
+	
 
 	return (
-		<CalendarView
-			editable
-			selectable
-			events={eventsData} 
-			eventClick={arg => {console.log('onEventClick', arg)}}
-			select={event => {console.log('onCellSelect', event)}}
-			eventDrop={arg => {console.log('onEventChange', arg)}}
-		/>
+		
+        <div className={classNames('mt-6 h-full flex flex-col', loading && 'justify-center')}>
+
+            { loading && (
+					<div className="flex justify-center">
+						<Spinner size={40} />
+					</div>
+				) 
+			}
+
+
+			{ ( appointments && appointments.data?.has_appointments === "no" && !loading)  && (
+
+                <div className="h-full flex flex-col items-center justify-center">
+				<DoubleSidedImage 
+					src="/img/others/img-2.png"
+					darkModeSrc="/img/others/img-2-dark.png"
+					alt="Access Denied!"
+				/>
+				<div className="mt-6 text-center">
+					<h3 className="mb-2">Oops!</h3>
+					<p className="text-base">You have no appointments to view</p>
+				</div>
+			</div>
+                
+				) 
+			}   
+
+  
+            { ( appointments?.data?.appointments?.length > 0 && appointments.data?.has_appointments === "yes" && !loading)  && (
+
+				<>
+
+
+				<CalendarView
+				editable
+				selectable
+				events={get_appointments} 
+				eventClick={event => onEventClick(event)}
+				select={event => {console.log('onCellSelect', event)}}
+				eventDrop={arg => {console.log('onEventChange', arg)}}
+		   		 />
+
+				
+				
+				
+				</>
+
+               
+			
+                
+				) 
+			}   
+
+			
+
+        </div>
+
+	
 	)
 }
 

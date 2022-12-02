@@ -5,6 +5,8 @@ import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid"
 import interactionPlugin from '@fullcalendar/interaction'
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
+
 
 import "@fullcalendar/common/main.css"
 import "@fullcalendar/daygrid/main.css"
@@ -32,10 +34,12 @@ export const eventColors = {
 const CalendarView = props => {
 
 	const { wrapperClass, ...rest } = props
+	
 
 	return (
 		<div className={classNames('calendar', wrapperClass)}>
 			<FullCalendar
+
 				initialView="dayGridMonth"
 				headerToolbar={{
 					left:   'title',
@@ -75,7 +79,7 @@ const CalendarView = props => {
 						</div>
 					)
 				}}
-				plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+				plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, googleCalendarPlugin]}
 				{...rest}
 			/>
 		</div>

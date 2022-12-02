@@ -10,11 +10,12 @@ injectReducer('Appointments', reducer)
 
 const Appointments = () => {
 	return (
-		<Container className="h-full">
+		<>
 		<AppointmentStatistic/>
 			<ActionBar />
             <AppointmentListContent />
-		</Container>
+		</>
+		
 	)
 }
 
