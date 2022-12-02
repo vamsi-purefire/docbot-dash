@@ -22,9 +22,9 @@ const Calendar = () => {
 	}
 
 	const onEventClick = event => {		
+		
 		openDrawer(event.event._def)
 
-		console.log('event_data', event.event._def)
 	}
 
 	const [isOpen, setIsOpen] = useState(false)
@@ -39,8 +39,6 @@ const Calendar = () => {
 	}
 
 
-	const { appointments, loading } = useSelector(state => state.Appointments.data)
-
 	const dispatch = useDispatch()
 
     useEffect(() => {
@@ -51,6 +49,9 @@ const Calendar = () => {
 	const fetchData = () => {
 		dispatch(getList())
 	}
+
+	const { appointments, loading } = useSelector(state => state.Appointments.data)
+
 
 
 		const get_appointments = appointments?.data?.appointments?.map((appointment) => {
@@ -99,7 +100,6 @@ const Calendar = () => {
 
 				<>
 
-
 				<CalendarView
 				editable
 				selectable
@@ -109,8 +109,6 @@ const Calendar = () => {
 				eventDrop={arg => {console.log('onEventChange', arg)}}
 		   		 />
 
-				
-				
 				
 				</>
 

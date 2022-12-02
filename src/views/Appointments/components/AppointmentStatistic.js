@@ -62,7 +62,7 @@ const { total_appointments, active_appointments, cancelled_appointments }  = app
 		<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">
 			<StatisticCard 
 				icon={<HiOutlineUserGroup />} 
-				avatarClass=""
+				avatarClass="0"
 				label="Total Appointments"
 				value={total_appointments}
 				growthRate="17.2"
@@ -70,7 +70,7 @@ const { total_appointments, active_appointments, cancelled_appointments }  = app
 			/>
 			<StatisticCard 
 				icon={<HiOutlineUsers />} 
-				avatarClass=""
+				avatarClass="0"
 				label="Active Appointments"
 				value={active_appointments}
 				growthRate="5"
@@ -78,7 +78,7 @@ const { total_appointments, active_appointments, cancelled_appointments }  = app
 			/>
 			<StatisticCard 
 				icon={<HiOutlineUserAdd />} 
-				avatarClass=""
+				avatarClass="0"
 				label="Cancelled Appointments"
 				value={cancelled_appointments}
 				growthRate="-3"

@@ -130,7 +130,6 @@ const ReactTable = props => {
 
 	const { data, dataLength } = props
 
-    console.log('data', data)
 
 	const {
 		getTableProps,

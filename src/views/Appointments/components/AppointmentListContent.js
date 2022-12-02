@@ -22,7 +22,6 @@ const AppointmentListContent = () => {
 		dispatch(getList())
 	}
 
-	console.log(appointments.data?.has_appointments);
 
 
     return (
