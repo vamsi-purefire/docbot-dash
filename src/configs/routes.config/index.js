@@ -9,7 +9,7 @@ export const protectedRoutes = [
     {
         key: 'home',
         path: '/home',
-        component: React.lazy(() => import('views/Home')),
+        component: React.lazy(() => import('views/Dashboard')),
         authority: [],
     },
     {
@@ -28,6 +28,13 @@ export const protectedRoutes = [
         key: 'calendar',
         path: '/calendar',
         component: React.lazy(() => import('views/Calendar')),
+        authority: [],
+    },
+
+    {
+        key: 'doctors',
+        path: '/doctors',
+        component: React.lazy(() => import('views/Doctors')),
         authority: [],
     },
     

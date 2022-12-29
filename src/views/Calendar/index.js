@@ -50,7 +50,7 @@ const Calendar = () => {
 		dispatch(getList())
 	}
 
-	const { appointments, loading } = useSelector(state => state.Appointments.data)
+	const { appointments, loading } = useSelector(state => state.Appointments?.data)
 
 
 

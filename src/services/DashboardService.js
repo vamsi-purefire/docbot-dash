@@ -8,6 +8,16 @@ export async function apiGetProjectDashboardData (params) {
     })
 }
 
+export async function apiGetDashboardData (params) {
+    return ApiService.fetchData({
+        url: '/api/v1/get-dashboard',
+        method: 'get',
+        params
+    })
+}
+
+
+
 export async function apiGetProjectList (data) {
     return ApiService.fetchData({
         url: '/project/list',
