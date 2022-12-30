@@ -16,26 +16,21 @@ const validationSchema = Yup.object().shape({
 		'Phone number is not valid'
 	),
 	avatar: Yup.string(),
-	gender : Yup.string().required('Please select gender!'),
-	specialization : Yup.string().required('Please select specialization!'),
-	experience : Yup.number().integer().required('Please enter experience!'),
 })
 
 const DoctorAddForm = forwardRef((props, ref) => {
 
-	const { doctor, onFormSubmit } = props
+	const { patient, onFormSubmit } = props
 
 	return (
 		<Formik
 			innerRef={ref}
 			initialValues={{ 
-				name: doctor.name || '',
-				email: doctor.email || '',
-				gender : doctor?.gender || '',
-				specialization : '',
-				avatar: doctor.avatar || '',
-				phoneNumber:doctor?.phoneNumber || '',
-				experience : doctor?.experience || '',
+				name: patient?.name || '',
+				email: patient?.email || '',
+				gender : patient?.gender || '',
+				avatar: patient?.avatar || '',
+				dob: patient?.dob ? dayjs(patient.dob).format('DD/MM/YYYY') : '',
 			}}
 			validationSchema={validationSchema}
 			onSubmit={(values, { setSubmitting }) => {

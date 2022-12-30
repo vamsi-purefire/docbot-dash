@@ -56,10 +56,8 @@ const AppointmentListContent = () => {
   
             { ( appointments?.data?.appointments?.length > 0 && appointments.data?.has_appointments === "yes" && !loading)  && (
 
-                <div className="grid  gap-4">	
 
 							<Table key={appointments.id} data={appointments} />
-				</div>
                 
 				) 
 			}   

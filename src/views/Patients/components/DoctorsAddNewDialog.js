@@ -21,7 +21,7 @@ const DrawerFooter = ({ onSaveClick, onCancel, loading }) => {
 
 const CustomerEditDialog = () => {
     const dispatch = useDispatch()
-    const drawerOpen = useSelector((state) => state.doctors.state.drawerOpen)
+    const drawerOpen = useSelector((state) => state.patients.state.drawerOpen)
 
     const onDrawerClose = () => {
         dispatch(setDrawerClose())

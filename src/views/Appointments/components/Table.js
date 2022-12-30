@@ -83,7 +83,7 @@ const columns = [
 			return (
 				<IconText
 					textClass="text-sm font-semibold text-white-500"
-					className="text-indigo-50"
+					className=""
 					icon={<HiOutlineClock className="text-lg" />}
 				>
 					{appointment_date} {appointment_time}

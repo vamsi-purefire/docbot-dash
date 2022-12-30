@@ -13,9 +13,9 @@ const DoctorEditContent = forwardRef( (_, ref) => {
 
 	const dispatch = useDispatch()
 
-	const doctor = useSelector((state) => state.patients.state.selectedPatient)
+	const patient = useSelector((state) => state.patients.state.selectedPatient)
 	const data = useSelector((state) => state.patients.data.doctorList)
-	const { id } = doctor
+	//const { id } = doctor
     const status = useSelector((state) => state.patients.data.putPatientResponse.code)
   
 
@@ -32,12 +32,11 @@ const DoctorEditContent = forwardRef( (_, ref) => {
 			email, 
 			avatar,
             gender,
-            specialization,
-            experience,
 			phoneNumber,
+            dob
 		} = values
 
-		const userInfo = {name, email, avatar, phoneNumber, gender, specialization, experience}
+		const userInfo = {name, email, avatar, phoneNumber, gender, dob}
 		let newData = cloneDeep(data)
 		let editedCustomer = {}
 
@@ -54,7 +53,7 @@ const DoctorEditContent = forwardRef( (_, ref) => {
 		<DoctorAddForm 
 			ref={ref} 
 			onFormSubmit={onFormSubmit}
-			doctor={doctor}
+			patient={patient}
 		/>
 	)
 })
