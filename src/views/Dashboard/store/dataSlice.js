@@ -4,7 +4,7 @@ import { apiGetDashboardData } from 'services/DashboardService'
 
 export const getData = createAsyncThunk('Dashboard/getData', async (data) => {
     const response = await apiGetDashboardData(data)
-	return response?.data
+	return response.data
 })
 
 
@@ -22,7 +22,7 @@ const dataSlice = createSlice({
         },
         [getData.fulfilled]: (state, action) => {
             state.loading = false
-            state.data = action.payload.data
+            state.data = action.payload
         }
     }
 })

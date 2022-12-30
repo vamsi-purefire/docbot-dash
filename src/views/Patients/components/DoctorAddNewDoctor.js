@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setDoctorList, putDoctor } from '../store/dataSlice'
+import { setPatientList, putPatient } from '../store/dataSlice'
 import { setDrawerClose } from '../store/stateSlice'
 import cloneDeep from 'lodash/cloneDeep'
 import isEmpty from 'lodash/isEmpty'
@@ -13,16 +13,16 @@ const DoctorEditContent = forwardRef( (_, ref) => {
 
 	const dispatch = useDispatch()
 
-	const doctor = useSelector((state) => state.doctors.state.selectedDoctor)
-	const data = useSelector((state) => state.doctors.data.doctorList)
+	const doctor = useSelector((state) => state.patients.state.selectedPatient)
+	const data = useSelector((state) => state.patients.data.doctorList)
 	const { id } = doctor
-    const status = useSelector((state) => state.doctors.data.putDoctorResponse.code)
+    const status = useSelector((state) => state.patients.data.putPatientResponse.code)
   
 
 	const onFormSubmit = values => {
 
         toast.push(
-			<Notification title={"Doctor has been added"} type="success" />
+			<Notification title={"Patient has been added"} type="success" />
 		,{
 			placement: 'top-center'
 		})
@@ -41,13 +41,13 @@ const DoctorEditContent = forwardRef( (_, ref) => {
 		let newData = cloneDeep(data)
 		let editedCustomer = {}
 
-        dispatch(putDoctor({userInfo}))
+        dispatch(putPatient({userInfo}))
 
         
         dispatch(setDrawerClose())
 
 
-		dispatch(setDoctorList())
+		dispatch(setPatientList())
 	}
 	
 	return (

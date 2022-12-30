@@ -54,7 +54,7 @@ const DashboardHeader = () => {
 
 	const { total_appointments, total_doctors, total_patients } = data?.statistics || {}
 
-	console.log(total_appointments)
+	console.log(data)
 
 	return (
 		<div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6">

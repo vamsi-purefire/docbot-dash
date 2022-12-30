@@ -13,7 +13,9 @@ const Appointments = () => {
 		<>
 		<AppointmentStatistic/>
 			<ActionBar />
+			<Container>
             <AppointmentListContent />
+			</Container>
 		</>
 		
 	)

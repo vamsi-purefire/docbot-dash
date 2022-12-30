@@ -48,21 +48,21 @@ const navigationConfig = [
 		subMenu: []
 	},
 	{
-		key: 'reports',
-		path: '/reports',
-		title: 'Reports',
-		translateKey: 'nav.reports',
-		icon: 'reports',
-		type: NAV_ITEM_TYPE_ITEM,
-		authority: [],
-		subMenu: []
-	},
-	{
 		key: 'doctors',
 		path: '/doctors',
 		title: 'Doctors',
 		translateKey: 'nav.doctors',
 		icon: 'doctors',
+		type: NAV_ITEM_TYPE_ITEM,
+		authority: [],
+		subMenu: []
+	},
+	{
+		key: 'reports',
+		path: '/reports',
+		title: 'Reports',
+		translateKey: 'nav.reports',
+		icon: 'reports',
 		type: NAV_ITEM_TYPE_ITEM,
 		authority: [],
 		subMenu: []
