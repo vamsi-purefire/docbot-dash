@@ -14,6 +14,11 @@ injectReducer('dashboard', reducer)
 const Dashboard = () => {
 
 
+    const { data, loading } = useSelector(state => state.dashboard.data)
+
+    console.log(data)
+
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -29,6 +34,7 @@ const Dashboard = () => {
     return (
         <>
             <DashboardHeader/>
+            <h4>Today's Appointments</h4>
             <Appointments />
         </>
     )

@@ -22,3 +22,7 @@
 .side-nav-transparent {
     @apply bg-transparent;
 }
+
+.overflow-x-auto {
+    overflow: hidden!important;
+}
